@@ -1,15 +1,10 @@
 #include<stdio.h>
 #include<ctype.h>
-typedef struct Point
-{
-    int row;
-    int col;
-    int statusk
-};
-int judge(Point spPont);
-int judgeHorizontal(const Point sPoint);
-int judgeVertical(const Point sPoint);
-int judgeHyperphoria(const Point sPoint);
-int judgeHyporphoria(const Point sPoint);
-int getStatus(const Point spPoint);
-void setStatus(const Point spPoint);
+void init();
+int judge(const int nRow, const int nCol);
+int judgeHorizontal(const int nRow, const int nCol, const int nStandard);
+int judgeVertical(const int nRow, const int nCol, const int nStandard);
+int judgeHyperphoria(const int nRow, const int nCol, const int nStandard);
+int judgeHyporphoria(const int nRow, const int nCol, const int nStandard);
+int getStatus(const int nRow, const int nCol);
+void setStatus(const int nRow, const int nCol, int turn);
