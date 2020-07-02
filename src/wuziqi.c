@@ -5,7 +5,7 @@
 #include "gameService.h"
 #include "menu.h"
 int AnChessStatus[15][15];
-
+int turn;
 
 
 
@@ -24,10 +24,11 @@ int main(){
         do
         {
             getStatus(nRow, nCol);
-            setStatus(nRow, nCol, turn);
+            printf("%d", AnChessStatus[1][1]);
+            
             printDraw();
 
-        } while (judge(nRow,nCol)==0);
+        } while (judge(nRow,nCol)==1);
 
     break;    
     case 2:

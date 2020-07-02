@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<ctype.h>
 extern int AnChessStatus[15][15];
-
+extern int turn=1;
 void init(){
     for (size_t i = 0; i < 15; i++)
     {
@@ -16,19 +16,14 @@ void init(){
 int getStatus(int nRow, int nCol) {
     
     scanf("%d%d", &nRow, &nCol);    
-    printf("1");
+    
     system("pause");
-    setStatus(nRow, nCol, 0);
-    return 0;
-}
-int setStatus(const int nRow, const int nCol,int turn){
-    printf("1");
     if (AnChessStatus[nRow][nCol] == 1 || AnChessStatus[nRow][nCol] == -1)
     {
         printf("请不要重复输入。");
         return 0;
     }
-    else if (turn%2==1||turn==1)
+    if (turn % 2 == 1 || turn == 1)
     {
         AnChessStatus[nRow][nCol] = 1;//黑棋加入
         turn++;
@@ -38,11 +33,18 @@ int setStatus(const int nRow, const int nCol,int turn){
     {
         AnChessStatus[nRow][nCol] = -1;
         turn++;
+        printf("1");
+        system("pause");
         return 0;
     }
+    printf("1");
+    system("pause");
     return 0;
 
 }
+
+ 
+
 
 
 int judgeHorizontal(const int nRow, const int nCol, const int nStandard) {

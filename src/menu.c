@@ -20,6 +20,7 @@ void ui1() {
 }
 void printDraw() {
     printf("   A B C D E F G H I J K L M N O \n");
+    system("pause");
     for (size_t i = 0; i < 9; i++)
     {
         printf("0%d ",i+1);
@@ -31,14 +32,16 @@ void printDraw() {
             }
             else if (AnChessStatus[i][j] == 0)
             {
-                printf("©ï");
+                printf("©ï©ï");
             }
             else
             {
                 printf("¡ð");
             }
         }
+        printf("\n");
     }
+    system("pause");
     for (size_t i = 9; i < 15; i++)
     {
         printf("%d ", i + 1);
@@ -50,12 +53,14 @@ void printDraw() {
             }
             else if (AnChessStatus[i][j] == 0)
             {
-                printf("©ï");
+                printf("©ï©ï");
             }
             else
             {
                 printf("¡ð");
             }
         }
+        printf("\n");
     }
+    system("pause");
 }
