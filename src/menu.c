@@ -1,4 +1,5 @@
 #include "menu.h"
+extern int AnChessStatus[15][15];
 void ui() {
     printf("-------------------------------\n");
     printf("-------Welcome to RenJu--------\n");
@@ -16,4 +17,45 @@ void ui1() {
         printf("%d ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï ©ï\n", i + 1);
     }
     printf("please enter the character like A1 B4 G8 to decide the position of the pieces.\nPS.uppercase alphabet means colums and digit means rows.\n");
+}
+void printDraw() {
+    printf("   A B C D E F G H I J K L M N O \n");
+    for (size_t i = 0; i < 9; i++)
+    {
+        printf("0%d ",i+1);
+        for (size_t j = 0; j < 15; j++)
+        {          
+            if (AnChessStatus[i][j] == 1)
+            {
+                printf("¡ñ");
+            }
+            else if (AnChessStatus[i][j] == 0)
+            {
+                printf("©ï");
+            }
+            else
+            {
+                printf("¡ð");
+            }
+        }
+    }
+    for (size_t i = 9; i < 15; i++)
+    {
+        printf("%d ", i + 1);
+        for (size_t j = 0; j < 15; j++)
+        {
+            if (AnChessStatus[i][j] == 1)
+            {
+                printf("¡ñ");
+            }
+            else if (AnChessStatus[i][j] == 0)
+            {
+                printf("©ï");
+            }
+            else
+            {
+                printf("¡ð");
+            }
+        }
+    }
 }

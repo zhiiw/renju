@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<ctype.h>
-int AnChessStauts[15][15];
+extern int AnChessStatus[15][15];
 typedef struct Point
 {
     int row;
@@ -8,32 +8,34 @@ typedef struct Point
     int status;
 }Point;
 enum test{Z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O};
-void init(char s[15][15]){
+void init(){
     for (size_t i = 0; i < 15; i++)
     {
         for (size_t j = 0; j < 15; j++)
         {
-            s[i][j]=0;//initialize the array;
+            AnChessStatus[i][j] =0;//initialize the array;
         }
 
     }
 
 }
-void getStatus(int s[15][15]){
-    int nCol;
-    int nRow;
-    int turn = 0;
-    turn=turn++;
-    scanf("%d%d", &nCol, &nRow);
-    int next[10][10];
-    if (turn % 2 ==0)
+int setStatus(const int nRow, const int nCol,int turn){
+    if (AnChessStatus[nRow][nCol] == 1 && AnChessStatus[nRow][nCol] == -1)
     {
-        next[nCol][nRow] = 1;//Black pieces
+        printf("请不要重复输入。");
+        return 0;
     }
-    else
+    if (turn%2==1||turn==1)
     {
-        next[nCol][nRow] = -1;//White pieces
+        AnChessStatus[nRow][nCol] = 1;//黑棋加入
+        turn++;
     }
+    else if (turn % 2 == 0)
+    {
+        AnChessStatus[nRow][nCol] = -1;
+        turn++;
+    }
+
 }
 int judge(const int nRow, const int nCol) {
     int nStandard;
@@ -67,7 +69,7 @@ int judgeHorizontal(const int nRow, const int nCol, const int nStandard) {
     j = nCol + 1;
     while (j<=14)
         {
-            if (AnChessStauts[i][j++] == nStandard)
+            if (AnChessStatus[i][j++] == nStandard)
             {
                 counter++;
             }
@@ -97,7 +99,7 @@ int judgeVertical(const int nRow, const int nCol, const int nStandard) {
         i = nRow + 1;
         while (i <= 14)
         {
-            if (AnChessStauts[i++][j] == nStandard)
+            if (AnChessStatus[i++][j] == nStandard)
             {
                 counter++;
             }
@@ -128,7 +130,7 @@ int judgeHyperphoria(const int nRow, const int nCol, const int nStandard) {
         i = nRow + 1;
         while (j <= 14)
         {
-            if (AnChessStauts[i++][j++] == nStandard)
+            if (AnChessStatus[i++][j++] == nStandard)
             {
                 counter++;
             }
@@ -159,7 +161,7 @@ int judgeHyporphoria(const int nRow, const int nCol, const int nStandard) {
         i = nRow + 1;
         while (j <= 14&&i>=0)
         {
-            if (AnChessStauts[i--][j++] == nStandard)
+            if (AnChessStatus[i--][j++] == nStandard)
             {
                 counter++;
             }
