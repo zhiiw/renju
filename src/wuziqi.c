@@ -21,14 +21,26 @@ int main(){
     case 1:
         ui1();
         init();
+        
         do
         {
             getStatus(nRow, nCol);
             printf("%d", AnChessStatus[1][1]);
             
             printDraw();
-
-        } while (judge(nRow,nCol)==1);
+            if (isWin(nRow, nCol) == 0)
+        {
+            printf("------------Black Win---------------");
+        }
+        else if(isWin(nRow, nCol) == -1)
+        {
+            printf("------------Black Win---------------");
+            
+        }
+            printf("%d", isWin(nRow, nCol));
+        } while (isWin(nRow,nCol)==1);
+        
+        system("pause");
 
     break;    
     case 2:

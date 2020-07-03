@@ -32,7 +32,7 @@ void printDraw() {
             }
             else if (AnChessStatus[i][j] == 0)
             {
-                printf("©ï©ï");
+                printf("©ï");
             }
             else
             {
@@ -53,7 +53,7 @@ void printDraw() {
             }
             else if (AnChessStatus[i][j] == 0)
             {
-                printf("©ï©ï");
+                printf("©ï");
             }
             else
             {
